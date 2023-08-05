@@ -19,13 +19,7 @@ export class AppComponent {
     completed: false
   };
 
-  tasksList: Task[] = [
-    {
-      name: 'Example',
-      content: 'description',
-      completed: false
-    }
-  ]
+  tasksList: Task[] = [];
 
   clearList = () => {
     this.tasksList = [];
@@ -37,8 +31,13 @@ export class AppComponent {
       this.newTask.content = this.newTask.content.trim();
       
       if (!this.newTask.name) return false;
+
+      let nextTask = { ...this.newTask };
       
-      this.tasksList.push(this.newTask);
+      this.tasksList.push(nextTask);
+      this.newTask.name = '', this.newTask.content = '', this.newTask.completed = false;
+      return true;
+      
     }
     this.newTask.name = '', this.newTask.content = '', this.newTask.completed = false;
     return true;
@@ -53,4 +52,7 @@ export class AppComponent {
     return true;
   }
 
+  complete = (item: Task) => {
+    item.completed = !item.completed;
+  }
 }

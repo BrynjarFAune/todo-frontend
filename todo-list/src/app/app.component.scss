@@ -1,9 +1,89 @@
-p, h1, span {
-    text-decoration: none;
-    color: black;
-}
-
-.completed {
+/* Add styles for the To-Do list container */
+.task-list-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-task-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .inputs input,
+  .inputs textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .list-wrapper {
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Style the To-Do list items */
+  li.list-group-item {
+    padding: 10px;
+  }
+  
+  .title-wrapper {
+    flex: 1;
+  }
+  
+  .title {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .content {
+    margin-bottom: 10px;
+    word-wrap:normal;
+    margin-top: 10px;
+  }
+  
+  .completed {
     text-decoration: line-through;
     color: #555;
-}
+  }
+  
+  .btn-wrapper {
+    align-self: center;
+  }
+  
+  /* Apply styles to the Clear List button */
+  .btn-warning.btn-lg {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Style the background and body */
+  body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

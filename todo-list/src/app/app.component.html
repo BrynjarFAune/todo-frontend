@@ -1,26 +1,32 @@
-<div class="task-list-container">
-  <h1>To-Do List</h1>
-  <button (click)="clearList()">Clear List</button>
+<div class="container task-list-container">
+  <h1 class="text-center">To-Do List</h1>
+  <button (click)="clearList()" class="btn btn-warning btn-lg d-block mx-auto mb-3">Clear List</button>
   <div class="add-task-container">
-    <div class="inputs">
-      <span>Name:</span>
-      <input type="text" [(ngModel)]="newTask.name" required placeholder="Required">
+    <div class="form-group inputs">
+      <label for="taskName">Name:</label>
+      <input id="taskName" class="form-control form-control-lg" type="text" [(ngModel)]="newTask.name" required placeholder="Required">
       
-      <span>Descriptoin:</span>
-      <input type="text" [(ngModel)]="newTask.content" placeholder="Optional">
+      <label for="taskDescription">Description:</label>
+      <textarea id="taskDescription" class="form-control form-control-sm" type="text" [(ngModel)]="newTask.content" placeholder="Optional"></textarea>
     </div>
-    <div class="buttons">
-      <button (click)="addItem(true)">Add Task</button>
-      <button (click)="addItem(false)">Cancel</button>
+    <div class="btn-group d-flex justify-content-center" role="group">
+      <button (click)="addItem(false)" class="btn btn-success">Add Task</button>
+      <button (click)="addItem(true)" class="btn btn-warning">Cancel</button>
     </div>
   </div>
   <div class="list-wrapper">
-    <ul class="task-list">
-      <li *ngFor="let task of tasksList">
-        <h1 class="title" [ngClass]="{'completed': task.completed}">{{ task.name }}</h1>
-        <div class="content">
-          <p *ngIf="task.content" [ngClass]="{'completed': task.completed}">{{ task.content }}</p>
-          <button (click)="removeItem(task)">Delete</button>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let task of tasksList" class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div class="title-wrapper">
+            <h2 class="title" [ngClass]="{'completed': task.completed}" (click)="complete(task)">{{ task.name }}</h2>
+          </div>
+          <div class="content">
+            <p class="description" *ngIf="task.content" [ngClass]="{'completed': task.completed}">{{ task.content }}</p>
+          </div>
+          <div class="btn-wrapper">
+            <button (click)="removeItem(task)" class="btn btn-warning btn-sm">Delete</button>
+          </div>
         </div>
       </li>
     </ul>
